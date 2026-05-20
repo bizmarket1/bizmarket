@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>BizMarket Premium Platform</title>
+<style>
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;font-family:Arial,sans-serif;background:#050505;color:white;padding-bottom:76px}
+body:before{content:"";position:fixed;inset:0;z-index:-1;background:radial-gradient(circle at 14% 10%,rgba(20,217,189,.16),transparent 28%),radial-gradient(circle at 86% 10%,rgba(34,211,238,.12),transparent 30%),linear-gradient(180deg,#050505,#081018 42%,#050505)}
+header{position:sticky;top:0;z-index:70;display:flex;justify-content:space-between;align-items:center;padding:17px 22px;background:rgba(5,5,5,.86);backdrop-filter:blur(18px);border-bottom:1px solid rgba(255,255,255,.1)}
+.logo{display:flex;align-items:center;gap:12px;font-size:28px;font-weight:900;color:#22d3ee}.logo-mark{width:44px;height:44px;border-radius:16px;background:linear-gradient(135deg,#d4af37,#17d7d0);display:grid;place-items:center;color:#04110f}
+nav{display:flex;gap:14px}nav a{color:#d1d5db;text-decoration:none;font-weight:800;font-size:14px}
+.btn{border:0;border-radius:18px;padding:15px 22px;font-weight:900;cursor:pointer}.primary{background:linear-gradient(135deg,#00a884,#14d9bd);color:#04110f}.secondary{background:rgba(255,255,255,.07);color:white;border:1px solid rgba(255,255,255,.13)}.danger{background:#ef4444;color:white}.gold{background:#facc15;color:#111827}
+section{max-width:1280px;margin:auto;padding:82px 22px}.hero{max-width:none;min-height:90vh;display:flex;align-items:center}.hero-inner{max-width:1280px;margin:auto;display:grid;grid-template-columns:1.05fr .95fr;gap:42px;align-items:center}
+.badge{display:inline-block;padding:10px 15px;border-radius:999px;background:rgba(20,217,189,.1);border:1px solid rgba(94,234,212,.34);color:#ccfbf1;font-weight:900;margin-bottom:20px}
+h1{font-size:clamp(48px,8vw,98px);line-height:.96;letter-spacing:-4px;margin:0 0 24px}.gradient{background:linear-gradient(90deg,#fff,#7df9ef,#22d3ee);-webkit-background-clip:text;-webkit-text-fill-color:transparent}.lead,.hero p{font-size:clamp(19px,2.3vw,27px);line-height:1.6;color:#cbd5e1}.cta{display:flex;gap:13px;flex-wrap:wrap;margin-top:28px}.chips{display:flex;gap:10px;flex-wrap:wrap;margin-top:24px}.chips span{padding:10px 13px;border-radius:999px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);color:#d1d5db;font-weight:800}
+.panel,.card,.item,.hero-card{background:rgba(17,24,39,.88);border:1px solid rgba(255,255,255,.1);border-radius:30px;padding:28px;box-shadow:0 28px 80px rgba(0,0,0,.22)}.hero-list{display:grid;gap:12px;margin:22px 0}.hero-list div{padding:15px;border-radius:17px;background:rgba(255,255,255,.055);border:1px solid rgba(255,255,255,.08);font-weight:800}
+.trust{max-width:1280px;margin:-40px auto 0;padding:0 22px}.trust-inner{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;background:rgba(17,24,39,.82);border:1px solid rgba(255,255,255,.12);border-radius:28px;padding:15px}.trust-item{text-align:center;padding:20px;background:rgba(255,255,255,.035);border-radius:21px}.trust-item strong{display:block;color:#7df9ef;font-size:22px}
+.kicker{display:block;color:#5eead4;text-transform:uppercase;letter-spacing:2px;font-size:13px;font-weight:900;margin-bottom:12px}h2{font-size:clamp(36px,5vw,62px);margin:0 0 18px}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px;margin-top:30px}.split{display:grid;grid-template-columns:1fr 1fr;gap:24px}.card:hover{border-color:rgba(94,234,212,.42)}.card h3{font-size:25px;margin:0 0 13px}.card p,.item p{color:#cbd5e1;line-height:1.62}
+input,select,textarea{width:100%;padding:15px 16px;background:#0f172a;color:white;border:1px solid rgba(255,255,255,.12);border-radius:16px;font-size:16px;margin-bottom:12px}textarea{min-height:110px}label{display:block;color:#d1d5db;font-weight:800;margin:10px 0}.hidden{display:none!important}
+.filters{position:sticky;top:78px;z-index:30;background:rgba(17,24,39,.84);backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,.1);border-radius:24px;padding:16px;margin:28px 0;display:grid;grid-template-columns:1.2fr 1fr 1fr auto;gap:12px}.filters input,.filters select{margin:0}.offer-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}.offer-card{overflow:hidden;padding:0}.offer-card img{width:100%;height:210px;object-fit:cover;display:block}.offer-body{padding:22px}.tag{display:inline-block;padding:7px 10px;border-radius:999px;font-size:12px;font-weight:900;margin:0 6px 8px 0}.verified{background:rgba(20,217,189,.15);border:1px solid rgba(20,217,189,.35);color:#ccfbf1}.top{background:#facc15;color:#111827}.assist{background:rgba(34,211,238,.14);border:1px solid rgba(34,211,238,.3);color:#bae6fd}.price{color:#7df9ef;font-size:30px;font-weight:900;margin:10px 0}
+.detail-wrap{display:grid;grid-template-columns:1fr 380px;gap:24px}.detail-cover{width:100%;height:370px;object-fit:cover;border-radius:26px}.info-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:14px;margin-top:20px}.info{background:#0f172a;border:1px solid rgba(255,255,255,.08);border-radius:18px;padding:17px}.info strong{display:block;color:#7df9ef;font-size:25px}.sticky-contact{position:sticky;top:96px}
+.how{display:grid;grid-template-columns:70px 1fr;gap:18px;padding:22px;border-radius:24px;background:rgba(17,24,39,.86);border:1px solid rgba(255,255,255,.1);margin-bottom:14px}.num{width:58px;height:58px;border-radius:19px;background:#003f35;color:#7df9ef;display:flex;align-items:center;justify-content:center;font-size:25px;font-weight:900}
+.progress{height:13px;background:#0f172a;border-radius:999px;overflow:hidden}.progress div{height:100%;width:14%;background:linear-gradient(90deg,#00a884,#14d9bd,#22d3ee)}.step{display:none}.step.active{display:block}.review{display:flex;justify-content:space-between;gap:18px;padding:12px 0;border-bottom:1px solid rgba(255,255,255,.08);color:#cbd5e1}.review strong{color:white}.preview-img{width:100%;height:210px;object-fit:cover;border-radius:22px;background:#0f172a}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:14px}.stat{background:#0f172a;border:1px solid rgba(255,255,255,.08);border-radius:20px;padding:20px}.stat strong{display:block;color:#7df9ef;font-size:32px}.dash-row{display:grid;grid-template-columns:1fr auto;gap:14px;align-items:center;background:#0f172a;border:1px solid rgba(255,255,255,.08);border-radius:20px;padding:17px;margin-bottom:13px}.state{display:inline-block;padding:8px 11px;border-radius:999px;font-size:12px;font-weight:900;background:#facc15;color:#111827}
+.mobile-sticky{display:none;position:fixed;left:0;right:0;bottom:70px;z-index:65;background:#0f172a;border-top:1px solid rgba(255,255,255,.1);padding:10px 12px;gap:10px}.toast{position:fixed;right:18px;bottom:94px;background:#111827;border:1px solid rgba(255,255,255,.1);padding:15px 18px;border-radius:16px;display:none;z-index:500}.bottom{position:fixed;left:0;right:0;bottom:0;background:#0f172a;border-top:1px solid rgba(255,255,255,.1);display:flex;justify-content:space-around;padding:12px 6px;z-index:60}.bottom button{background:none;border:0;color:white;font-weight:900;font-size:12px}footer{text-align:center;padding:55px 22px;color:#64748b;border-top:1px solid rgba(255,255,255,.1)}
+@media(max-width:980px){nav{display:none}.hero-inner,.split,.detail-wrap{grid-template-columns:1fr}.hero{text-align:center}.cta,.chips{justify-content:center}.trust-inner{grid-template-columns:1fr 1fr}.filters{position:relative;top:auto;grid-template-columns:1fr}.how{grid-template-columns:1fr}.dash-row{grid-template-columns:1fr}.sticky-contact{position:relative;top:auto}.mobile-sticky{display:flex}.detail-cover{height:260px}}
+@media(max-width:560px){h1{letter-spacing:-2px}.trust-inner{grid-template-columns:1fr}.btn{width:100%}section{padding:64px 18px}.hero{padding-top:40px}.panel,.card,.hero-card{padding:23px}.offer-body{padding:18px}}
+</style>
+</head>
+<body>
+<header><div class="logo"><span class="logo-mark">🤝</span> BizMarket</div><nav><a href="#market">Nabídky</a><a href="#detail">Detail 2.0</a><a href="#pricing">Ceník</a><a href="#onboarding">Prodat</a><a href="#login">Přihlášení</a></nav></header>
+
+<section class="hero" id="home"><div class="hero-inner"><div><div class="badge">Premium business marketplace</div><h1>Kupte nebo prodejte firmu <span class="gradient">moderně.</span></h1><p>Funkční launch verze BizMarketu s detailem firmy 2.0, instant filtry, onboardingem, Smart BizAlertem, dashboardem a adminem.</p><div class="cta"><button class="btn primary" onclick="goTo('onboarding')">Chci prodat firmu</button><button class="btn secondary" onclick="goTo('market')">Procházet nabídky</button><button class="btn secondary" onclick="goTo('buy')">Aktivovat BizAlert</button></div><div class="chips"><span>✔ Verified systém</span><span>⚡ Instant filtry</span><span>🤖 AI popis</span><span>🔐 Admin kontrola</span></div></div><div class="hero-card"><div class="badge">LIVE MARKETPLACE FEELING</div><h2>Web nepůsobí jako mrtvý katalog.</h2><p class="lead">Elegantní activity feed a trust prvky vytváří pocit moderní živé platformy.</p><div class="hero-list"><div>🟢 Nový investor hledá e-shop</div><div>🟢 Aktivovaný Smart BizAlert</div><div>🟢 Nabídka čeká na kontrolu</div><div>🟢 BizMarket Assisted připraven</div></div></div></div></section>
+<div class="trust"><div class="trust-inner"><div class="trust-item"><strong>Verified</strong>admin checked</div><div class="trust-item"><strong>Diskrétně</strong>kontakt pod kontrolou</div><div class="trust-item"><strong>BizAlert</strong>databáze kupujících</div><div class="trust-item"><strong>Premium</strong>moderní UX</div></div></div>
+
+<section id="market"><span class="kicker">Premium nabídky</span><h2>Moderní filtry a karty firem.</h2><p class="lead">Ukázkový marketplace bez fake dat pro launch. Filtry fungují okamžitě v prohlížeči.</p><div class="filters"><input id="q" placeholder="Hledat firmu..." oninput="renderOffers()"><select id="cat" onchange="renderOffers()"><option value="">Všechny obory</option><option>E-shop</option><option>Restaurace</option><option>SaaS</option><option>Služby</option></select><select id="loc" onchange="renderOffers()"><option value="">Celá ČR</option><option>Praha</option><option>Brno</option><option>Vysočina</option></select><button class="btn primary" onclick="clearFilters()">Reset</button></div><div class="offer-grid" id="offerGrid"></div></section>
+
+<section id="detail"><span class="kicker">Detail firmy 2.0</span><h2>Nejdůležitější stránka webu.</h2><p class="lead">Detail musí působit jako investiční prezentace, ne jako obyčejný inzerát.</p><div class="detail-wrap"><div class="panel"><img class="detail-cover" src="https://images.unsplash.com/photo-1556740749-887f6717d7e4?q=80&w=1400&auto=format&fit=crop"><div style="margin-top:18px"><span class="tag verified">✔ VERIFIED</span><span class="tag top">TOP NABÍDKA</span><span class="tag assist">ASSISTED</span></div><h2 style="margin-top:14px">Zavedený e-shop s vlastním brandem</h2><div class="price">4 900 000 Kč</div><p class="lead">Funkční online podnikání se stabilní klientelou, automatizací a potenciálem dalšího růstu.</p><div class="info-grid"><div class="info"><strong>1.2M</strong>EBITDA</div><div class="info"><strong>8.5M</strong>Obrat</div><div class="info"><strong>6</strong>Zaměstnanci</div><div class="info"><strong>2018</strong>Založeno</div></div><div class="grid"><div class="card"><h3>📈 Potenciál růstu</h3><p>Expanze do zahraničí, rozšíření sortimentu a výkonnostní marketing.</p></div><div class="card"><h3>🔒 Důvěra</h3><p>Ověřený kontakt, admin kontrola a diskrétní první komunikace.</p></div><div class="card"><h3>🤖 AI shrnutí</h3><p>Silná značka, stabilní procesy a připravený online byznys.</p></div></div></div><div class="panel sticky-contact"><h3>Kontaktovat majitele</h3><p style="color:#cbd5e1">Bezpečný první kontakt přes BizMarket.</p><input id="inqName" placeholder="Vaše jméno"><input id="inqEmail" placeholder="E-mail"><textarea id="inqMsg" placeholder="Zpráva pro prodávajícího"></textarea><button class="btn primary" style="width:100%" onclick="sendInquiry()">Mám zájem</button><button class="btn secondary" style="width:100%;margin-top:10px" onclick="saveFavorite()">❤️ Uložit firmu</button></div></div></section>
+
+<section id="how"><span class="kicker">Jak to funguje</span><h2>Jednoduchý proces, který budí důvěru.</h2><div class="how"><div class="num">1</div><div><h3>Vyplníte onboarding</h3><p class="lead">Prodávající připraví nabídku krok za krokem.</p></div></div><div class="how"><div class="num">2</div><div><h3>Proběhne kontrola</h3><p class="lead">Nabídka nejde automaticky ven bez schválení.</p></div></div><div class="how"><div class="num">3</div><div><h3>Kupující nastaví BizAlert</h3><p class="lead">Sbíráme relevantní poptávky podle oboru a budgetu.</p></div></div></section>
+
+
+<section id="pricing">
+  <span class="kicker">Ceník služeb</span>
+  <h2>Nižší ceny, modernější prezentace.</h2>
+  <p class="lead">Vyberte délku zveřejnění nabídky. Delší plán je výhodnější a připravený pro launch propagaci.</p>
+
+  <div class="grid">
+    <div class="card price-plan">
+      <span class="kicker">Inzerce na</span>
+      <h3 style="font-size:42px;color:#7df9ef">1 měsíc</h3>
+      <div class="price">490 Kč <span style="font-size:18px;color:#aab4c5">/ měsíc</span></div>
+      <p>Celkem <b>490 Kč bez DPH</b> za 1 měsíc</p>
+      <div class="hero-list">
+        <div>✔ 1 aktivní inzerát</div>
+        <div>✔ Základní ověření nabídky</div>
+        <div>✕ Bez sociální propagace</div>
+      </div>
+      <button class="btn secondary" style="width:100%" onclick="selectPlan('1 měsíc',490)">Vybrat plán</button>
+    </div>
+
+    <div class="card price-plan">
+      <span class="kicker">Inzerce na</span>
+      <h3 style="font-size:42px;color:#7df9ef">3 měsíce</h3>
+      <div class="price">390 Kč <span style="font-size:18px;color:#aab4c5">/ měsíc</span></div>
+      <p>Celkem <b>1 170 Kč bez DPH</b> za 3 měsíce</p>
+      <div class="hero-list">
+        <div>✔ 1 aktivní inzerát</div>
+        <div>✔ Sdílení na Facebooku</div>
+        <div>✔ Sdílení na Instagramu</div>
+      </div>
+      <button class="btn secondary" style="width:100%" onclick="selectPlan('3 měsíce',1170)">Vybrat plán</button>
+    </div>
+
+    <div class="card price-plan" style="border-color:#14d9bd;box-shadow:0 0 45px rgba(20,217,189,.16)">
+      <div class="badge">⭐ Doporučujeme</div>
+      <span class="kicker">Inzerce na</span>
+      <h3 style="font-size:42px;color:#7df9ef">6 měsíců</h3>
+      <div class="price">290 Kč <span style="font-size:18px;color:#aab4c5">/ měsíc</span></div>
+      <p>Celkem <b>1 740 Kč bez DPH</b> za 6 měsíců</p>
+      <div class="hero-list">
+        <div>✔ 1 aktivní inzerát</div>
+        <div>✔ Sdílení na Facebooku</div>
+        <div>✔ Sdílení na Instagramu</div>
+        <div>✔ Lepší pozice v nabídce</div>
+      </div>
+      <button class="btn primary" style="width:100%" onclick="selectPlan('6 měsíců',1740)">Vybrat doporučený plán</button>
+    </div>
+
+    <div class="card price-plan">
+      <span class="kicker">Inzerce na</span>
+      <h3 style="font-size:42px;color:#7df9ef">12 měsíců</h3>
+      <div class="price">240 Kč <span style="font-size:18px;color:#aab4c5">/ měsíc</span></div>
+      <p>Celkem <b>2 880 Kč bez DPH</b> za 12 měsíců</p>
+      <div class="hero-list">
+        <div>✔ 1 aktivní inzerát</div>
+        <div>✔ Sociální propagace</div>
+        <div>✔ Delší viditelnost</div>
+      </div>
+      <button class="btn secondary" style="width:100%" onclick="selectPlan('12 měsíců',2880)">Vybrat plán</button>
+    </div>
+  </div>
+
+  <div class="split" style="margin-top:28px">
+    <div class="panel">
+      <div class="badge">🔥 Topování inzerátu</div>
+      <h2 style="font-size:42px">Chcete být více vidět?</h2>
+      <p class="lead">Připravíme zvýraznění na míru podle typu firmy, oboru, cílového kupujícího a délky propagace.</p>
+      <div class="hero-list">
+        <div>⭐ TOP badge u nabídky</div>
+        <div>🚀 Zvýraznění na homepage</div>
+        <div>📩 Rozeslání kupujícím v BizAlertu</div>
+        <div>📱 Promo na sociálních sítích</div>
+        <div>💎 Premium karta v katalogu</div>
+      </div>
+      <button class="btn primary" onclick="requestBoost()">Chci topování na míru</button>
+    </div>
+
+    <div class="panel">
+      <div class="badge">💼 BizMarket Assisted</div>
+      <h2 style="font-size:42px">Asistovaný prodej firmy.</h2>
+      <p class="lead">Pro majitele, kteří chtějí profesionálnější přípravu nabídky a lepší první dojem. Provize nebo cena služby se nastaví individuálně podle rozsahu.</p>
+      <div class="hero-list">
+        <div>✔ Pomoc s přípravou nabídky</div>
+        <div>✔ Lepší struktura a textace</div>
+        <div>✔ Diskrétní první kontakt</div>
+        <div>✔ Investor matching připravený do budoucna</div>
+      </div>
+      <button class="btn secondary" onclick="goTo('onboarding')">Spustit asistovaný onboarding</button>
+    </div>
+  </div>
+
+  <div class="panel" style="margin-top:28px">
+    <span class="kicker">Shrnutí objednávky</span>
+    <h2 style="font-size:42px">Vybraný plán</h2>
+    <div id="selectedPlanBox" class="hero-list">
+      <div>Zatím není vybraný žádný plán.</div>
+    </div>
+    <button class="btn primary" onclick="fakePay()" style="width:100%;max-width:420px">Pokračovat k platbě</button>
+  </div>
+</section>
+
+<section id="onboarding"><span class="kicker">Premium onboarding</span><h2>Přidání firmy krok za krokem.</h2><div class="split"><div class="panel"><div style="display:flex;justify-content:space-between;gap:16px;color:#cbd5e1;font-weight:900"><span id="stepLabel">Krok 1 z 7</span><span id="saveNote" style="color:#5eead4">Autosave</span></div><div class="progress" style="margin:16px 0 25px"><div id="progress"></div></div><div class="step active" data-step="1"><h3>Typ nabídky</h3><select id="obType"><option>Firma</option><option>E-shop</option><option>Restaurace</option><option>Služby</option></select></div><div class="step" data-step="2"><h3>Základní informace</h3><input id="obTitle" placeholder="Název firmy"><input id="obLocation" placeholder="Lokalita"><input id="obPrice" placeholder="Orientační cena"><select id="obCategory"><option>E-shop</option><option>Restaurace</option><option>Služby</option><option>Výroba</option><option>Jiné</option></select></div><div class="step" data-step="3"><h3>Popis</h3><textarea id="obDesc" placeholder="Popis firmy"></textarea><button class="btn secondary" onclick="generateText()">🤖 Vygenerovat základ</button></div><div class="step" data-step="4"><h3>Finance</h3><input id="obRevenue" placeholder="Roční obrat"><input id="obEbitda" placeholder="EBITDA / zisk"><input id="obEmployees" placeholder="Počet zaměstnanců"></div><div class="step" data-step="5"><h3>Fotografie</h3><input type="file" id="obImage" accept="image/*" onchange="previewImage(event)"><img id="previewUpload" class="preview-img hidden"></div><div class="step" data-step="6"><h3>Kontakt</h3><input id="obEmail" placeholder="E-mail"><input id="obPhone" placeholder="Telefon"><label><input id="obAnonymous" type="checkbox"> Anonymně do prvního kontaktu</label></div><div class="step" data-step="7"><h3>Kontrola</h3><div id="reviewBox"></div><label><input id="obGdpr" type="checkbox"> Souhlasím se zpracováním údajů.</label></div><div class="cta"><button class="btn secondary" onclick="prevStep()">Zpět</button><button class="btn primary" id="nextBtn" onclick="nextStep()">Pokračovat</button></div></div><div class="panel"><span class="kicker">Náhled</span><h3 id="sideTitle">Název firmy</h3><div class="price" id="sidePrice">Cena bude doplněna</div><p id="sideMeta" style="color:#cbd5e1">Lokalita · Kategorie</p><div class="hero-list"><div>✔ Data nejdou hned veřejně ven</div><div>🔒 Kontrola BizMarketem</div><div>📩 Kontakt pod kontrolou</div></div></div></div></section>
+
+<section id="buy"><span class="kicker">Pro kupující</span><h2>Smart BizAlert.</h2><div class="panel" style="max-width:760px"><input id="alertEmail" placeholder="Váš e-mail"><select id="alertCategory"><option>E-shop</option><option>Restaurace</option><option>Služby</option><option>Výroba</option><option>Vše</option></select><input id="alertBudget" placeholder="Budget"><label><input id="alertGdpr" type="checkbox"> Souhlasím se zasíláním relevantních nabídek.</label><button class="btn primary" onclick="submitAlert()">Aktivovat BizAlert</button></div></section>
+
+<section id="login"><span class="kicker">Přihlášení</span><h2>Vítejte zpět v BizMarketu</h2><p class="lead">Spravujte nabídky, BizAlert upozornění, uložené firmy i onboarding prodeje.</p><div class="split"><div class="panel"><div class="badge">🚀 Přístup do nové generace business marketplace</div><div class="hero-list"><div>✔ Správa nabídek</div><div>📩 Smart BizAlert</div><div>❤️ Uložené firmy</div><div>🔐 Admin kontrola</div></div></div><div class="panel"><p style="color:#cbd5e1">Admin demo: <b>admin@bizmarket.cz</b> / <b>admin123</b></p><input id="loginEmail" placeholder="E-mail"><input id="loginPass" type="password" placeholder="Heslo"><button class="btn primary" style="width:100%" onclick="login()">Přihlásit</button><button class="btn secondary" onclick="registerUser()" style="width:100%;margin-top:10px">Registrovat demo účet</button><button class="btn secondary" onclick="logout()" style="width:100%;margin-top:10px">Odhlásit</button><p id="accountState" class="lead">Nejste přihlášeni.</p></div></div></section>
+
+<section id="dashboard" class="hidden"><span class="kicker">Dashboard</span><h2 id="dashTitle">Moje položky</h2><div class="stats"><div class="stat"><strong id="countCompanies">0</strong>Nabídky</div><div class="stat"><strong id="countAlerts">0</strong>BizAlert</div><div class="stat"><strong id="countContacts">0</strong>Kontakty</div><div class="stat"><strong id="countFavs">0</strong>Uložené</div></div><div style="margin-top:26px" id="dashContent"></div></section>
+
+<div class="mobile-sticky"><button class="btn primary" onclick="sendInquiry()">Mám zájem</button><button class="btn secondary" onclick="saveFavorite()">❤️ Uložit</button></div>
+<div class="toast" id="toast"></div><div class="bottom"><button onclick="goTo('home')">🏠 Domů</button><button onclick="goTo('market')">🏢 Firmy</button><button onclick="goTo('onboarding')">➕ Prodat</button><button onclick="goTo('buy')">📩 Alert</button><button onclick="goTo('login')">🔐 Účet</button></div>
+<footer>© 2026 BizMarket · Premium Platform MVP</footer>
+<script>
+const demoOffers=[
+ {name:'Zavedený e-shop s vlastním brandem',cat:'E-shop',loc:'Praha',price:'4 900 000 Kč',img:'https://images.unsplash.com/photo-1556740749-887f6717d7e4?q=80&w=1200&auto=format&fit=crop',ebitda:'1.2M'},
+ {name:'Moderní restaurace v centru',cat:'Restaurace',loc:'Brno',price:'6 900 000 Kč',img:'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=1200&auto=format&fit=crop',ebitda:'900k'},
+ {name:'B2B SaaS startup',cat:'SaaS',loc:'Praha',price:'9 800 000 Kč',img:'https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?q=80&w=1200&auto=format&fit=crop',ebitda:'Růst 32%'},
+ {name:'Lokální služby s databází klientů',cat:'Služby',loc:'Vysočina',price:'1 900 000 Kč',img:'https://images.unsplash.com/photo-1497366754035-f200968a6e72?q=80&w=1200&auto=format&fit=crop',ebitda:'450k'}
+];
+let state=JSON.parse(localStorage.getItem('bm_platform_v28')||'{"companies":[],"alerts":[],"users":[],"currentUser":null,"favs":0,"contacts":0}');
+let step=1;let draft=JSON.parse(localStorage.getItem('bm_draft_v28')||'{}');
+function save(){localStorage.setItem('bm_platform_v28',JSON.stringify(state))}
+function saveDraft(){['obType','obTitle','obLocation','obPrice','obCategory','obDesc','obRevenue','obEbitda','obEmployees','obEmail','obPhone'].forEach(id=>{let e=document.getElementById(id);if(e)draft[id]=e.value});localStorage.setItem('bm_draft_v28',JSON.stringify(draft));document.getElementById('saveNote').innerText='Uloženo';updatePreview()}
+function toast(msg){let t=document.getElementById('toast');t.innerText=msg;t.style.display='block';setTimeout(()=>t.style.display='none',2400)}
+function goTo(id){document.getElementById(id).scrollIntoView({behavior:'smooth'})}function v(id){return document.getElementById(id)?.value.trim()||''}
+function renderOffers(){let q=v('q').toLowerCase(),cat=v('cat'),loc=v('loc');let arr=demoOffers.filter(o=>(!q||o.name.toLowerCase().includes(q))&&(!cat||o.cat===cat)&&(!loc||o.loc===loc));document.getElementById('offerGrid').innerHTML=arr.map(o=>`<div class="card offer-card"><img src="${o.img}"><div class="offer-body"><span class="tag verified">✔ VERIFIED</span><span class="tag top">TOP</span><h3>${o.name}</h3><div class="price">${o.price}</div><p style="color:#cbd5e1">${o.loc} · ${o.cat} · EBITDA ${o.ebitda}</p><button class="btn primary" onclick="goTo('detail')" style="width:100%">Detail nabídky</button></div></div>`).join('')||'<div class="item"><h3>Nic nenalezeno</h3><p>Zkuste upravit filtry.</p></div>'}
+function clearFilters(){document.getElementById('q').value='';document.getElementById('cat').value='';document.getElementById('loc').value='';renderOffers()}
+function sendInquiry(){state.contacts++;save();toast('Poptávka odeslána demo ✅');renderAll()}function saveFavorite(){state.favs++;save();toast('Firma uložena ❤️');renderAll()}
+function updateProgress(){document.getElementById('stepLabel').innerText='Krok '+step+' z 7';document.getElementById('progress').style.width=(step/7*100)+'%';document.getElementById('nextBtn').innerText=step===7?'Odeslat ke kontrole':'Pokračovat';document.querySelectorAll('.step').forEach(p=>p.classList.remove('active'));document.querySelector('.step[data-step="'+step+'"]').classList.add('active');if(step===7)renderReview()}
+function valid(){if(step===2&&!v('obTitle')){toast('Doplňte název firmy.');return false}if(step===3&&!v('obDesc')){toast('Doplňte popis firmy.');return false}if(step===6&&!v('obEmail').includes('@')){toast('Doplňte platný e-mail.');return false}if(step===7&&!document.getElementById('obGdpr').checked){toast('Potvrďte souhlas.');return false}return true}
+function nextStep(){saveDraft();if(!valid())return;if(step<7){step++;updateProgress();goTo('onboarding')}else submitCompany()}function prevStep(){if(step>1){step--;updateProgress();goTo('onboarding')}}
+function generateText(){document.getElementById('obDesc').value='Zavedené podnikání se stabilní klientelou, funkčními procesy a potenciálem dalšího růstu. Nabídka je vhodná pro kupujícího, který hledá připravený projekt s možností převzetí.';saveDraft()}
+function previewImage(e){let f=e.target.files[0];if(!f)return;let r=new FileReader();r.onload=ev=>{let img=document.getElementById('previewUpload');img.src=ev.target.result;img.classList.remove('hidden')};r.readAsDataURL(f)}
+function updatePreview(){document.getElementById('sideTitle').innerText=v('obTitle')||'Název firmy';document.getElementById('sidePrice').innerText=v('obPrice')||'Cena bude doplněna';document.getElementById('sideMeta').innerText=(v('obLocation')||'Lokalita')+' · '+(v('obCategory')||'Kategorie')}
+function renderReview(){saveDraft();let rows=[['Typ',v('obType')||'-'],['Název',v('obTitle')||'-'],['Lokalita',v('obLocation')||'-'],['Kategorie',v('obCategory')||'-'],['Cena',v('obPrice')||'-'],['Kontakt',v('obEmail')||'-']];document.getElementById('reviewBox').innerHTML=rows.map(r=>'<div class="review"><span>'+r[0]+'</span><strong>'+r[1]+'</strong></div>').join('')}
+function submitCompany(){state.companies.push({id:Date.now(),name:v('obTitle'),price:v('obPrice'),category:v('obCategory'),location:v('obLocation'),email:v('obEmail'),status:'čeká na kontrolu'});save();localStorage.removeItem('bm_draft_v28');toast('Nabídka odeslána ke kontrole ✅');renderAll();goTo('dashboard')}
+function submitAlert(){if(!v('alertEmail').includes('@')||!document.getElementById('alertGdpr').checked){toast('Vyplňte e-mail a souhlas.');return}state.alerts.push({id:Date.now(),email:v('alertEmail'),cat:v('alertCategory'),budget:v('alertBudget')});save();toast('BizAlert aktivován ✅');renderAll()}
+function registerUser(){let email=v('loginEmail'),pass=v('loginPass');if(!email.includes('@')||pass.length<3){toast('Zadejte e-mail a heslo.');return}state.users.push({email,pass,role:'user'});state.currentUser={email,role:'user'};save();toast('Účet vytvořen ✅');renderAll();goTo('dashboard')}
+function login(){let email=v('loginEmail'),pass=v('loginPass');if(email==='admin@bizmarket.cz'&&pass==='admin123'){state.currentUser={email,role:'admin'};save();toast('Admin přihlášen ✅');renderAll();goTo('dashboard');return}let u=state.users.find(x=>x.email===email&&x.pass===pass);if(u){state.currentUser={email:u.email,role:u.role};save();toast('Přihlášeno ✅');renderAll();goTo('dashboard')}else toast('Účet nenalezen.')}
+function logout(){state.currentUser=null;save();renderAll();toast('Odhlášeno')}function approve(id){let c=state.companies.find(x=>x.id===id);if(c)c.status='schváleno pro launch';save();renderAll();toast('Schváleno ✅')}function promote(id){let c=state.companies.find(x=>x.id===id);if(c)c.status='TOP / promoted';save();renderAll();toast('Zvýrazněno ⭐')}function delCompany(id){state.companies=state.companies.filter(x=>x.id!==id);save();renderAll();toast('Smazáno')}
+function renderAll(){document.getElementById('accountState').innerHTML=state.currentUser?'Přihlášen: <b>'+state.currentUser.email+'</b><br>Role: '+state.currentUser.role:'Nejste přihlášeni.';document.getElementById('countCompanies').innerText=state.companies.length;document.getElementById('countAlerts').innerText=state.alerts.length;document.getElementById('countContacts').innerText=state.contacts;document.getElementById('countFavs').innerText=state.favs;let dash=document.getElementById('dashboard'),box=document.getElementById('dashContent');if(!state.currentUser){dash.classList.add('hidden');return}dash.classList.remove('hidden');let list=state.currentUser.role==='admin'?state.companies:state.companies.filter(c=>c.email===state.currentUser.email);document.getElementById('dashTitle').innerText=state.currentUser.role==='admin'?'Admin panel':'Moje nabídky';box.innerHTML=list.length?list.map(c=>'<div class="dash-row"><div><h3>'+c.name+'</h3><p style="color:#cbd5e1">'+(c.price||'Cena neuvedena')+' · '+c.category+' · '+(c.location||'')+'</p><span class="state">'+c.status+'</span></div><div>'+(state.currentUser.role==='admin'?'<button class="btn primary" onclick="approve('+c.id+')">Schválit</button> <button class="btn secondary" onclick="promote('+c.id+')">TOP</button> ':'')+'<button class="btn danger" onclick="delCompany('+c.id+')">Smazat</button></div></div>').join(''):'<div class="item"><h3>Zatím žádné položky</h3><p>Spusťte onboarding a vytvořte první nabídku.</p></div>'}
+
+let selectedPlan=null;
+function selectPlan(name,price){
+  selectedPlan={name,price};
+  document.getElementById('selectedPlanBox').innerHTML =
+    '<div><b>Plán:</b> '+name+'</div>'+
+    '<div><b>Cena bez DPH:</b> '+price.toLocaleString('cs-CZ')+' Kč</div>'+
+    '<div><b>DPH 21 %:</b> '+Math.round(price*0.21).toLocaleString('cs-CZ')+' Kč</div>'+
+    '<div><b>Celkem:</b> <span style="color:#7df9ef;font-size:28px">'+Math.round(price*1.21).toLocaleString('cs-CZ')+' Kč</span></div>';
+  toast('Plán vybrán ✅');
+  goTo('pricing');
+}
+function requestBoost(){
+  state.contacts++;
+  save();
+  toast('Žádost o topování uložena ✅');
+  renderAll();
+}
+function fakePay(){
+  if(!selectedPlan){toast('Nejdřív vyberte plán.');return}
+  toast('Demo platba připravena ✅');
+}
+
+document.addEventListener('input',e=>{if(e.target.closest&&e.target.closest('#onboarding'))saveDraft()});Object.keys(draft).forEach(k=>{let e=document.getElementById(k);if(e)e.value=draft[k]});renderOffers();updatePreview();updateProgress();renderAll();
+</script>
+</body></html>
