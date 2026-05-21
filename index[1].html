@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>BizMarket.cz | Marketplace skutečných firem na prodej</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="header">
+  <div class="container nav">
+    <a class="logo" href="index.html"><span class="logo-mark">🤝</span> BizMarket</a>
+    <nav class="menu">
+      <a href="#nabidky">Nabídky</a>
+      <a href="#duvera">Důvěra</a>
+      <a href="#pricing">Ceník</a>
+      <a href="add-listing.html">Prodat firmu</a>
+      <a href="dashboard.html">Dashboard</a>
+    </nav>
+    <div class="actions">
+      <a class="btn btn-secondary" href="detail.html">Detail firmy</a>
+      <a class="btn btn-primary" href="add-listing.html">Přidat firmu</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <span class="badge">Ověřovaný marketplace</span>
+        <h1>Kupte nebo prodejte firmu <span class="gradient">moderně a diskrétně.</span></h1>
+        <p class="lead">BizMarket propojuje majitele firem a zájemce o akvizice. Bez fake nabídek, bez umělých statistik a s důrazem na důvěru.</p>
+        <div class="hero-cta">
+          <a class="btn btn-primary" href="add-listing.html">Chci prodat firmu</a>
+          <a class="btn btn-secondary" href="#nabidky">Procházet nabídky</a>
+          <a class="btn btn-secondary" href="#alert">Aktivovat BizAlert</a>
+        </div>
+      </div>
+      <div class="hero-card">
+        <span class="badge">Proč BizMarket</span>
+        <h2>Modernější alternativa ke klasické inzerci firem.</h2>
+        <p class="muted">Stavíme český marketplace, kde je hlavní kvalita nabídky, diskrétní kontakt a ověření před zveřejněním.</p>
+        <div class="check-list">
+          <div>✔ Jen skutečné nabídky po kontrole</div>
+          <div>✔ Diskrétní první kontakt</div>
+          <div>✔ Připraveno pro majitele firem</div>
+          <div>✔ Premium prezentace každé nabídky</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container trust-strip">
+      <div class="trust-box"><strong>Ověření</strong><span class="muted">kontrola před zveřejněním</span></div>
+      <div class="trust-box"><strong>Diskrétnost</strong><span class="muted">citlivá data pod kontrolou</span></div>
+      <div class="trust-box"><strong>Kontakt</strong><span class="muted">první zpráva přes BizMarket</span></div>
+      <div class="trust-box"><strong>CZ</strong><span class="muted">zaměřeno na český trh</span></div>
+    </div>
+  </section>
+
+  <section class="section" id="nabidky">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <span class="badge">Marketplace</span>
+          <h2>Aktuální nabídky firem</h2>
+          <p class="lead">Níže jsou připravené pozice a později první skutečné nabídky. Nezobrazujeme vymyšlené finance.</p>
+        </div>
+        <div class="filters">
+          <input class="input" id="search" placeholder="Hledat firmu">
+          <select id="category">
+            <option value="">Všechny obory</option>
+            <option>E-shop</option>
+            <option>Služby</option>
+            <option>Restaurace</option>
+          </select>
+          <select id="location">
+            <option value="">Celá ČR</option>
+            <option>Praha</option>
+            <option>Brno</option>
+            <option>Česká republika</option>
+          </select>
+        </div>
+      </div>
+      <div class="market-grid" id="listingGrid"></div>
+    </div>
+  </section>
+
+  <section class="section" id="duvera">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <span class="badge">Důvěra</span>
+          <h2>Proč prodávat přes BizMarket</h2>
+        </div>
+      </div>
+      <div class="grid-3">
+        <div class="panel"><h3>🔒 Diskrétní komunikace</h3><p class="muted">Majitel nemusí veřejně ukazovat citlivé údaje. První kontakt jde přes platformu.</p></div>
+        <div class="panel"><h3>✔ Ověřované nabídky</h3><p class="muted">Nabídky nebudou zveřejněné automaticky bez kontroly základních informací.</p></div>
+        <div class="panel"><h3>🚀 Moderní prezentace</h3><p class="muted">Každá firma dostane detail, galerii, kontakt a profesionální akviziční strukturu.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="pricing">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <span class="badge">Ceník</span>
+          <h2>Ceník zveřejnění nabídky</h2>
+          <p class="lead">Jednoduchý start pro první majitele firem. Topování a asistovaný prodej lze doplnit individuálně.</p>
+        </div>
+      </div>
+      <div class="plan-grid">
+        <div class="panel plan"><span class="badge">1 měsíc</span><h3>490 Kč</h3><p class="muted">Základní inzerce a kontrola nabídky.</p><button class="btn btn-secondary btn-full" onclick="toast('Plán vybrán')">Vybrat</button></div>
+        <div class="panel plan"><span class="badge">3 měsíce</span><h3>1 170 Kč</h3><p class="muted">Delší viditelnost a lepší prostor pro zájemce.</p><button class="btn btn-secondary btn-full" onclick="toast('Plán vybrán')">Vybrat</button></div>
+        <div class="panel plan featured"><span class="badge">Doporučeno</span><h3>1 740 Kč</h3><p class="muted">6 měsíců, vhodné pro většinu prodejů.</p><button class="btn btn-primary btn-full" onclick="toast('Doporučený plán vybrán')">Vybrat</button></div>
+        <div class="panel plan"><span class="badge">12 měsíců</span><h3>2 880 Kč</h3><p class="muted">Maximální čas na nalezení kupujícího.</p><button class="btn btn-secondary btn-full" onclick="toast('Plán vybrán')">Vybrat</button></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="alert">
+    <div class="container detail-grid">
+      <div>
+        <span class="badge">BizAlert</span>
+        <h2>Upozornění na nové firmy</h2>
+        <p class="lead">Kupující si může nastavit zájem o obor, lokalitu a rozpočet. V další fázi napojíme e-mailové rozesílky.</p>
+      </div>
+      <form class="panel" id="alertForm">
+        <input class="input" name="email" type="email" placeholder="E-mail" required>
+        <select name="category"><option>E-shop</option><option>Restaurace</option><option>Služby</option><option>Vše</option></select>
+        <input class="input" name="budget" placeholder="Rozpočet">
+        <button class="btn btn-primary btn-full" type="submit">Aktivovat BizAlert</button>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer class="footer"><div class="container">© 2026 BizMarket.cz · Moderní marketplace firem</div></footer>
+<div class="mobile-bar"><a href="index.html">Domů</a><a href="#nabidky">Firmy</a><a href="add-listing.html">Prodat</a><a href="dashboard.html">Účet</a></div>
+<div class="toast" id="toast"></div>
+<script src="script.js"></script>
+</body>
+</html>
