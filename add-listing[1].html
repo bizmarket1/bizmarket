@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Přidat firmu | BizMarket.cz</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="header">
+  <div class="container nav">
+    <a class="logo" href="index.html"><span class="logo-mark">🤝</span> BizMarket</a>
+    <nav class="menu">
+      <a href="index.html#nabidky">Nabídky</a>
+      <a href="detail.html">Detail firmy</a>
+      <a href="index.html#duvera">Důvěra</a>
+    </nav>
+    <div class="actions"><a class="btn btn-secondary" href="index.html">Zpět na web</a></div>
+  </div>
+</header>
+
+<main>
+  <section class="page-title">
+    <div class="container">
+      <span class="badge">Přidání firmy</span>
+      <h1>Začněte diskrétně prodávat firmu.</h1>
+      <p class="lead">Vyplňte základní údaje. Nabídka se nezveřejní automaticky — nejdříve projde kontrolou.</p>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:30px">
+    <div class="container detail-grid">
+      <div class="panel">
+        <form id="addListingForm">
+          <div class="form-grid">
+            <div>
+              <label>Název firmy / projektu</label>
+              <input class="input" name="title" placeholder="Např. e-shop, restaurace, služba" required>
+            </div>
+            <div>
+              <label>Obor</label>
+              <select name="category">
+                <option>E-shop</option>
+                <option>Restaurace</option>
+                <option>Služby</option>
+                <option>Výroba</option>
+                <option>Jiné</option>
+              </select>
+            </div>
+            <div>
+              <label>Lokalita</label>
+              <input class="input" name="location" placeholder="Město / kraj">
+            </div>
+            <div>
+              <label>Orientační cena</label>
+              <input class="input" name="price" placeholder="Např. dohodou / orientačně">
+            </div>
+            <div class="wide">
+              <label>Stručný popis</label>
+              <textarea name="description" placeholder="Popište firmu, co je předmětem prodeje a komu je nabídka vhodná." required></textarea>
+            </div>
+            <div>
+              <label>Kontaktní e-mail</label>
+              <input class="input" name="email" type="email" required>
+            </div>
+            <div>
+              <label>Telefon</label>
+              <input class="input" name="phone">
+            </div>
+            <div class="wide">
+              <label>
+                <input type="checkbox" required>
+                Souhlasím s tím, že mě BizMarket kontaktuje kvůli kontrole nabídky.
+              </label>
+            </div>
+          </div>
+          <button class="btn btn-primary" type="submit">Odeslat ke kontrole</button>
+        </form>
+      </div>
+
+      <aside class="panel sticky">
+        <span class="badge">Co bude dál</span>
+        <div class="check-list">
+          <div>1. Údaje se uloží lokálně jako MVP demo</div>
+          <div>2. V další fázi napojíme databázi</div>
+          <div>3. Nabídky bude možné schvalovat v administraci</div>
+          <div>4. Teprve potom se zobrazí veřejně</div>
+        </div>
+        <div class="notice" style="margin-top:16px">Tento formulář je připravený na reálný systém bez fake inzerátů.</div>
+      </aside>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="container">© 2026 BizMarket.cz · Přidání firmy</div>
+</footer>
+<div id="toast" style="display:none;position:fixed;right:18px;bottom:18px;background:#111827;border:1px solid rgba(255,255,255,.12);padding:14px 18px;border-radius:16px;z-index:100"></div>
+<script src="script.js"></script>
+</body>
+</html>
