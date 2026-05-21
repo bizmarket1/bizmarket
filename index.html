@@ -568,4 +568,237 @@ document.addEventListener('input',e=>{if(e.target.closest&&e.target.closest('#on
 
 }
 </style>
+  <section class="marketplace-section">
+
+  <div class="marketplace-header">
+    <h2>Aktuální nabídky firem</h2>
+
+    <div class="filters">
+
+      <select>
+        <option>Lokalita</option>
+        <option>Praha</option>
+        <option>Brno</option>
+        <option>Ostrava</option>
+      </select>
+
+      <select>
+        <option>Kategorie</option>
+        <option>Restaurace</option>
+        <option>E-shop</option>
+        <option>Služby</option>
+      </select>
+
+      <select>
+        <option>Cena</option>
+        <option>Do 1 mil Kč</option>
+        <option>1–5 mil Kč</option>
+        <option>5+ mil Kč</option>
+      </select>
+
+    </div>
+  </div>
+
+  <div class="marketplace-grid">
+
+    <div class="market-card">
+      <span class="card-badge verified">
+        OVĚŘOVANÁ NABÍDKA
+      </span>
+
+      <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=1200">
+
+      <div class="card-content">
+        <h3>Restaurace v centru Prahy</h3>
+
+        <p class="card-location">Praha</p>
+
+        <p class="card-description">
+          Nově přidaná nabídka restaurace s dlouhodobou historií.
+        </p>
+
+        <button>Zobrazit detail</button>
+      </div>
+    </div>
+
+    <div class="market-card premium">
+      <span class="card-badge premium-b">
+        PREMIUM
+      </span>
+
+      <img src="https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?q=80&w=1200">
+
+      <div class="card-content">
+        <h3>E-shop se sportovní módou</h3>
+
+        <p class="card-location">Brno</p>
+
+        <p class="card-description">
+          Ověřovaná nabídka zavedeného online projektu.
+        </p>
+
+        <button>Zobrazit detail</button>
+      </div>
+    </div>
+
+    <div class="market-card">
+      <span class="card-badge new-b">
+        NOVÉ
+      </span>
+
+      <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=1200">
+
+      <div class="card-content">
+        <h3>Marketingová agentura</h3>
+
+        <p class="card-location">Ostrava</p>
+
+        <p class="card-description">
+          Firma připravena k diskrétnímu jednání.
+        </p>
+
+        <button>Zobrazit detail</button>
+      </div>
+    </div>
+
+  </div>
+
+</section>
+
+<style>
+
+.marketplace-section{
+  max-width:1300px;
+  margin:120px auto;
+  padding:20px;
+}
+
+.marketplace-header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:40px;
+  gap:20px;
+  flex-wrap:wrap;
+}
+
+.marketplace-header h2{
+  font-size:46px;
+}
+
+.filters{
+  display:flex;
+  gap:15px;
+  flex-wrap:wrap;
+}
+
+.filters select{
+  background:#111;
+  color:white;
+  border:1px solid rgba(255,255,255,0.08);
+  padding:14px 18px;
+  border-radius:14px;
+}
+
+.marketplace-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:28px;
+}
+
+.market-card{
+  background:#0f0f0f;
+  border-radius:28px;
+  overflow:hidden;
+  border:1px solid rgba(255,255,255,0.08);
+  transition:0.35s;
+  position:relative;
+}
+
+.market-card:hover{
+  transform:translateY(-10px);
+  border-color:rgba(0,208,132,0.5);
+  box-shadow:0 20px 50px rgba(0,208,132,0.12);
+}
+
+.market-card img{
+  width:100%;
+  height:240px;
+  object-fit:cover;
+}
+
+.card-content{
+  padding:28px;
+}
+
+.card-content h3{
+  font-size:28px;
+  margin-bottom:10px;
+}
+
+.card-location{
+  color:#00d084;
+  margin-bottom:16px;
+}
+
+.card-description{
+  color:#aaa;
+  line-height:1.7;
+  margin-bottom:24px;
+}
+
+.card-content button{
+  width:100%;
+  border:none;
+  padding:16px;
+  border-radius:16px;
+  background:linear-gradient(135deg,#00d084,#00b4ff);
+  color:white;
+  font-weight:700;
+  cursor:pointer;
+}
+
+.card-badge{
+  position:absolute;
+  top:18px;
+  left:18px;
+  z-index:5;
+  padding:10px 14px;
+  border-radius:999px;
+  font-size:12px;
+  font-weight:700;
+  backdrop-filter:blur(10px);
+}
+
+.verified{
+  background:rgba(0,208,132,0.15);
+  color:#00d084;
+}
+
+.premium-b{
+  background:rgba(255,215,0,0.15);
+  color:gold;
+}
+
+.new-b{
+  background:rgba(0,180,255,0.15);
+  color:#00b4ff;
+}
+
+.premium{
+  border-color:rgba(255,215,0,0.4);
+}
+
+@media(max-width:1000px){
+
+  .marketplace-grid{
+    grid-template-columns:1fr;
+  }
+
+  .marketplace-header h2{
+    font-size:34px;
+  }
+
+}
+</style>
 </body></html>
